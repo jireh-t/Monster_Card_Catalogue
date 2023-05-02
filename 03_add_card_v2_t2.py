@@ -1,6 +1,6 @@
-"""Component 2 Add combo version 1
-This code will be trial 1 using an enterbox with multiple fields to get the
-user's combo"""
+"""Version 2 of add combo, trialling a different way to ask the user for
+their combo. Uses a new enter box for every item rather than a combined
+multenterbox """
 
 import easygui
 
@@ -29,24 +29,20 @@ exist_cards = {"Stoneling":
 
 new_card = {}
 
-# Get the values of the cards
-
-text = "Enter the following values of your card"  # Prompt for user to type
-title = "ENTER CARD"  # Title shown
-
-# Fields to fill in
-input_list = ["Monster name", "Strength", "Speed", "Stealth", "Cunning"]
-
-# User's inputs are added to a list
-values = easygui.multenterbox(text, title, input_list)
+# Get the values for each category
+monster_name = easygui.enterbox(f"Enter the monster's name", "NAME")
+strength = easygui.enterbox(f"Enter the value for 'Strength'", "STRENGTH")
+speed = easygui.enterbox(f"Enter the value for 'Speed'", "SPEED")
+stealth = easygui.enterbox(f"Enter the value for 'Stealth'", "STEALTH")
+cunning = easygui.enterbox(f"Enter the value for 'Cunning'", "CUNNING")
 
 # Add the user's card to a new dictionary
 
-new_card[values[0]] = {}  # Adds key with monster name and empty dictionary
-new_card[values[0]]["Strength"] = values[1]  # Adds strength
-new_card[values[0]]["Speed"] = values[2]  # Adds speed
-new_card[values[0]]["Stealth"] = values[3]  # Adds stealth
-new_card[values[0]]["Cunning"] = values[4]  # Adds cunning
+new_card[monster_name] = {}  # Adds key with monster name and empty dictionary
+new_card[monster_name]["Strength"] = strength  # Adds strength
+new_card[monster_name]["Speed"] = speed  # Adds speed
+new_card[monster_name]["Stealth"] = stealth  # Adds stealth
+new_card[monster_name]["Cunning"] = cunning  # Adds cunning
 
 # Print the combo and check with user that it is correct
 card = ""
@@ -59,4 +55,3 @@ easygui.buttonbox(f"Is the following card correct?\n\n"
                   f"{monster_name}\n\n"
                   f"{card}",
                   choices=["Yes", "No"])
-
