@@ -1,5 +1,4 @@
-"""Trial 1 of change card, this will trial the user selecting what specific
-category they would like to change"""
+"""Version 3 of change card component, making the enter boxes integer boxes"""
 
 import easygui
 
@@ -33,40 +32,42 @@ while True:
     if change == "Monster name":
 
         # Ask user for new combo name
-        monster_name_change = easygui.enterbox("What would you like to change "
-                                               "it to?").upper()
+        monster_name_change = easygui.integerbox("What would you like to "
+                                                 "change it to?", "", 1, 25
+                                                 ).upper()
         # Replace the combo name with new name
         new_card[monster_name_change] = new_card.pop(monster_name)
 
     elif change == "Strength":
 
         # Ask user for new value
-        new_strength = easygui.enterbox(f"What would you like to change the "
-                                        f"value of 'Strength' to?")
+        new_strength = easygui.integer("What would you like to change "
+                                       "the value of 'Strength' to?", "", 1,
+                                       25)
         # Replace the current value with new one
         new_card[monster_name]["Strength"] = new_strength
 
     elif change == "Speed":
 
         # Ask user for new value
-        new_speed = easygui.enterbox(f"What would you like to change the "
-                                     f"value of 'Speed' to?")
+        new_speed = easygui.integerbox("What would you like to change the value"
+                                       " of 'Speed' to?", "", 1, 25)
         # Replace the current value with new one
         new_card[monster_name]["Speed"] = new_speed
 
     elif change == "Stealth":
 
         # Ask user for new value
-        new_stealth = easygui.enterbox(f"What would you like to change the "
-                                       f"value of 'Stealth' to?")
+        new_stealth = easygui.integerbox("What would you like to change the "
+                                         "value of 'Stealth' to?", "", 1, 25)
         # Replace the current value with new one
         new_card[monster_name]["Stealth"] = new_stealth
 
     elif change == "Cunning":
 
         # Ask user for new value
-        new_cunning = easygui.enterbox(f"What would you like to change the "
-                                       f"value of 'Cunning' to?")
+        new_cunning = easygui.integerbox("What would you like to change the "
+                                         "value of 'Cunning' to?", "", 1, 25)
         # Replace the current value with new one
         new_card[monster_name]["Cunning"] = new_cunning
 
