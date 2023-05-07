@@ -42,7 +42,7 @@ exist_cards = {"STONELING":
                "FROSTSTEP":
                    {"Strength": 14, "Speed": 14, "Stealth": 7, "Cunning": 4},
                "WHISPGOUL":
-                   {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2},
+                   {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}
                }
 
 new_card = {}

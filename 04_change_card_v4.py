@@ -1,6 +1,25 @@
-"""Version 3 of change card component, making the enter boxes integer boxes"""
+"""Version 4 of change card component, adding the blank checker function
+from component 2"""
 
 import easygui
+
+
+# Function to make sure input is entered and not left blank
+def blank_checker(question, title):
+    error_message = "You must fill out every field"
+
+    # Asks user for input
+    answer = easygui.enterbox(question, title)
+
+    while True:  # Loops until valid input is entered
+        if answer == "":  # Checks if it is blank
+            easygui.msgbox(error_message, "ERROR")  # Display error message
+            answer = easygui.enterbox(question, title)
+        else:
+            return answer
+
+
+# Main Routine
 
 # Card to change
 new_card = {"STONELING":
@@ -32,8 +51,8 @@ while True:
     if change == "Monster name":
 
         # Ask user for new combo name
-        monster_name_change = easygui.enterbox("What would you like to change "
-                                               "it to?", "NAME",).upper()
+        monster_name_change = blank_checker("What would you like to change it"
+                                            " to?", "NAME",).upper()
         # Replace the combo name with new name
         new_card[monster_name_change] = new_card.pop(monster_name)
 
