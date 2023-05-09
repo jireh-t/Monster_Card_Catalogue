@@ -1,6 +1,8 @@
 """Version 5 of change card component, making the previous code more
 flexible by putting it into a function"""
 
+FIX THIS CODE
+
 import easygui
 
 
@@ -15,6 +17,10 @@ def blank_checker(question, title):
         if answer == "":  # Checks if it is blank
             easygui.msgbox(error_message, "ERROR")  # Display error message
             answer = easygui.enterbox(question, title)
+
+        if not answer:
+            easygui.msgbox(error_message, "ERROR")  # Display error message
+            answer = easygui.enterbox(question, title)
         else:
             return answer
 
@@ -24,6 +30,7 @@ def change_card(card_confirm):
 
     # Keep looping until the card is correct
     while True:
+        monster_name = ""
 
         # Print the card and check with user that it is correct
         card = ""
@@ -70,7 +77,7 @@ def change_card(card_confirm):
                 # Ask user for new combo name
                 monster_name_change = blank_checker("What would you like to "
                                                     "change it to?",
-                                                    "NAME",).upper()
+                                                    "NAME").upper()
 
             # Replace the combo name with new name
             card_confirm[monster_name_change] = new_card.pop(monster_name)

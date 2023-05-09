@@ -1,24 +1,39 @@
-"""Version 2 of add combo, making the values integer boxes and putting
-boundaries on the values entered also adds the blank checker function from
-component 2"""
+"""Version 2 of add combo, adds the blank checker function from component 2"""
 
 import easygui
 
 
 # Function to make sure input is entered and not left blank
-def blank_checker(question, title):
+def blank_checker(question, title, box):
     error_message = "You must fill out every field"
 
-    # Asks user for input
-    answer = easygui.enterbox(question, title)
+    if box == "enter":
+        # Asks user for input
+        answer = easygui.enterbox(question, title)
 
-    while True:  # Loops until valid input is entered
-        if answer == "":  # Checks if it is blank
-            easygui.msgbox(error_message, "ERROR")  # Display error message
-            answer = easygui.enterbox(question, title)
-        else:
-            return answer
+        while True:  # Loops until valid input is entered
+            if answer == "":  # Checks if it is blank
+                easygui.msgbox(error_message, "ERROR")  # Display error message
+                answer = easygui.enterbox(question, title)
 
+            if not answer:
+                easygui.msgbox(error_message, "ERROR")  # Display error message
+                answer = easygui.enterbox(question, title)
+            else:
+                return answer
+
+    elif box == "integer":
+        # Asks user for input
+        answer = easygui.integerbox(question, title, lowerbound=1,
+                                    upperbound=25)
+
+        while True:  # Loops until valid input is entered
+            if not answer:
+                easygui.msgbox(error_message, "ERROR")  # Display error message
+                answer = easygui.integerbox(question, title, lowerbound=1,
+                                            upperbound=25)
+            else:
+                return answer
 
 # Main Routine
 
@@ -48,14 +63,13 @@ exist_cards = {"STONELING":
 new_card = {}
 
 # Get the values for each category
-monster_name = blank_checker("Enter the monster's name", "NAME",).upper()
-strength = easygui.integerbox("Enter the value for 'Strength'", "STRENGTH",
-                              "", 1, 25)
-speed = easygui.integerbox("Enter the value for 'Speed'", "SPEED", "", 1, 25)
-stealth = easygui.integerbox("Enter the value for 'Stealth'", "STEALTH",
-                             "", 1, 25)
-cunning = easygui.integerbox("Enter the value for 'Cunning'", "CUNNING",
-                             "", 1, 25)
+monster_name = blank_checker("Enter the monster's name", "NAME",
+                             "enter").upper()
+strength = blank_checker("Enter the value for 'Strength'", "STRENGTH",
+                         "integer")
+speed = blank_checker("Enter the value for 'Speed'", "SPEED", "integer")
+stealth = blank_checker("Enter the value for 'Stealth'", "STEALTH", "integer")
+cunning = blank_checker("Enter the value for 'Cunning'", "CUNNING", "integer")
 
 # Add the user's card to a new dictionary
 

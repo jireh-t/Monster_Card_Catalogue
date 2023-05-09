@@ -1,4 +1,5 @@
-"""Puts code from version 2 into a function"""
+"""Puts code from version 2 into a function and also having an error message
+for when the user clicks cancel"""
 
 import easygui
 
@@ -12,6 +13,10 @@ def blank_checker(question, title):
 
     while True:  # Loops until valid input is entered
         if answer == "":  # Checks if it is blank
+            easygui.msgbox(error_message, "ERROR")  # Display error message
+            answer = easygui.enterbox(question, title)
+
+        if not answer:
             easygui.msgbox(error_message, "ERROR")  # Display error message
             answer = easygui.enterbox(question, title)
         else:
