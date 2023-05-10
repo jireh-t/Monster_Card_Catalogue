@@ -40,7 +40,7 @@ def blank_checker(question, title, box):
 
 # Card to change
 new_card = {"STONELING":
-                   {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15}}
+                {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15}}
 
 # Keep looping until the card is correct
 while True:
@@ -106,4 +106,3 @@ while True:
                                     "of 'Cunning' to?", "CUNNING", "integer")
         # Replace the current value with new one
         new_card[monster_name]["Cunning"] = new_cunning
-

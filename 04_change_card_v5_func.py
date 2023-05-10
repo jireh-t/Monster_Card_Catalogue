@@ -1,28 +1,40 @@
 """Version 5 of change card component, making the previous code more
 flexible by putting it into a function"""
 
-FIX THIS CODE
-
 import easygui
 
 
 # Function to make sure input is entered and not left blank
-def blank_checker(question, title):
+def blank_checker(question, title, box):
     error_message = "You must fill out every field"
 
-    # Asks user for input
-    answer = easygui.enterbox(question, title)
+    if box == "enter":
+        # Asks user for input
+        answer = easygui.enterbox(question, title)
 
-    while True:  # Loops until valid input is entered
-        if answer == "":  # Checks if it is blank
-            easygui.msgbox(error_message, "ERROR")  # Display error message
-            answer = easygui.enterbox(question, title)
+        while True:  # Loops until valid input is entered
+            if answer == "":  # Checks if it is blank
+                easygui.msgbox(error_message, "ERROR")  # Display error message
+                answer = easygui.enterbox(question, title)
 
-        if not answer:
-            easygui.msgbox(error_message, "ERROR")  # Display error message
-            answer = easygui.enterbox(question, title)
-        else:
-            return answer
+            if not answer:
+                easygui.msgbox(error_message, "ERROR")  # Display error message
+                answer = easygui.enterbox(question, title)
+            else:
+                return answer
+
+    elif box == "integer":
+        # Asks user for input
+        answer = easygui.integerbox(question, title, lowerbound=1,
+                                    upperbound=25)
+
+        while True:  # Loops until valid input is entered
+            if not answer:
+                easygui.msgbox(error_message, "ERROR")  # Display error message
+                answer = easygui.integerbox(question, title, lowerbound=1,
+                                            upperbound=25)
+            else:
+                return answer
 
 
 # Function to allow user to edit the combo
@@ -61,12 +73,11 @@ def change_card(card_confirm):
 
             # Ask user for new combo name
             monster_name_change = blank_checker("What would you like to "
-                                                "change it to?",
-                                                "NAME",).upper()
+                                                "change it to?", "NAME",
+                                                "enter").upper()
 
             # If the name has already been used
-            while monster_name_change in exist_cards:  # Fix when user wants
-                # to change back??
+            while monster_name_change in exist_cards:
 
                 # Error message
                 easygui.msgbox(f"{monster_name_change} is already the "
@@ -77,7 +88,7 @@ def change_card(card_confirm):
                 # Ask user for new combo name
                 monster_name_change = blank_checker("What would you like to "
                                                     "change it to?",
-                                                    "NAME").upper()
+                                                    "NAME", "enter").upper()
 
             # Replace the combo name with new name
             card_confirm[monster_name_change] = new_card.pop(monster_name)
@@ -85,36 +96,34 @@ def change_card(card_confirm):
         elif change == "Strength":
 
             # Ask user for new value
-            new_strength = easygui.integerbox("What would you like to change "
-                                              "the value of 'Strength' to?",
-                                              "STRENGTH", "", 1, 25)
+            new_strength = blank_checker("What would you like to change the value "
+                                         "of 'Strength' to?", "STRENGTH",
+                                         "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Strength"] = new_strength
 
         elif change == "Speed":
 
             # Ask user for new value
-            new_speed = easygui.integerbox("What would you like to change "
-                                           "the value of 'Speed' to?", "SPEED",
-                                           "", 1, 25)
+            new_speed = blank_checker("What would you like to change the value "
+                                      "of 'Speed' to?", "SPEED", "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Speed"] = new_speed
 
         elif change == "Stealth":
 
             # Ask user for new value
-            new_stealth = easygui.integerbox("What would you like to change "
-                                             "the value of 'Stealth' to?",
-                                             "STEALTH", "", 1, 25)
+            new_stealth = blank_checker("What would you like to change the value "
+                                        "of 'Stealth' to?", "STEALTH", "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Stealth"] = new_stealth
 
         elif change == "Cunning":
 
             # Ask user for new value
-            new_cunning = easygui.integerbox("What would you like to change "
-                                             "the value of 'Cunning' to?",
-                                             "CUNNING", "", 1, 25)
+            new_cunning = blank_checker("What would you like to change the "
+                                        "value of 'Cunning' to?", "CUNNING",
+                                        "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Cunning"] = new_cunning
 
