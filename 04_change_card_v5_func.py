@@ -39,7 +39,6 @@ def blank_checker(question, title, box):
 
 # Function to allow user to edit the combo
 def change_card(card_confirm):
-
     # Keep looping until the card is correct
     while True:
         monster_name = ""
@@ -78,7 +77,6 @@ def change_card(card_confirm):
 
             # If the name has already been used
             while monster_name_change in exist_cards:
-
                 # Error message
                 easygui.msgbox(f"{monster_name_change} is already the "
                                f"name of a monster card in the deck\n You "
@@ -96,25 +94,28 @@ def change_card(card_confirm):
         elif change == "Strength":
 
             # Ask user for new value
-            new_strength = blank_checker("What would you like to change the value "
-                                         "of 'Strength' to?", "STRENGTH",
-                                         "integer")
+            new_strength = blank_checker(
+                "What would you like to change the value "
+                "of 'Strength' to?", "STRENGTH",
+                "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Strength"] = new_strength
 
         elif change == "Speed":
 
             # Ask user for new value
-            new_speed = blank_checker("What would you like to change the value "
-                                      "of 'Speed' to?", "SPEED", "integer")
+            new_speed = blank_checker(
+                "What would you like to change the value "
+                "of 'Speed' to?", "SPEED", "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Speed"] = new_speed
 
         elif change == "Stealth":
 
             # Ask user for new value
-            new_stealth = blank_checker("What would you like to change the value "
-                                        "of 'Stealth' to?", "STEALTH", "integer")
+            new_stealth = blank_checker(
+                "What would you like to change the value "
+                "of 'Stealth' to?", "STEALTH", "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Stealth"] = new_stealth
 
@@ -155,7 +156,7 @@ exist_cards = {"STONELING":
 
 # Card to change
 new_card = {"STONELING":
-                    {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15}}
+                {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15}}
 
 # Get the correct updated card
 correct_card = change_card(new_card)

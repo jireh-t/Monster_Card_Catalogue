@@ -28,7 +28,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.04_change_card_v4">
+  <component name="RunManager" selected="Python.04_change_card_v5_func (1)">
     <configuration name="02_blank_checker_v4_func" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Monster_Card_Catalogue" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -136,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.04_change_card_v4" />
         <item itemvalue="Python.04_change_card_v5_func (1)" />
+        <item itemvalue="Python.04_change_card_v4" />
         <item itemvalue="Python.04_change_card_v5_func" />
         <item itemvalue="Python.02_blank_checker_v4_func" />
         <item itemvalue="Python.04_change_card_v3" />
