@@ -1,5 +1,4 @@
-"""Version 5 of change card component, making the previous code more
-flexible by putting it into a function"""
+"""Puts code from version 5 into a function to make it more recyclable"""
 
 import easygui
 
@@ -129,8 +128,47 @@ def change_card(card_confirm):
             card_confirm[monster_name]["Cunning"] = new_cunning
 
 
-# Main Routine
+# Function to allow user to add a new card
+def add_card(cards):
 
+    new_card = {}
+
+    # Get the values for each category
+    monster_name = blank_checker("Enter the monster's name", "NAME",
+                                 "enter").upper()
+    # Check if the name has already been used
+    while monster_name in exist_cards:
+        # Show error message
+        easygui.msgbox(f"Sorry, {monster_name} is already the name of a monster "
+                       f"card\n You must enter a different name", "ERROR")
+        # Ask for name again
+        monster_name = blank_checker("Enter the monster's name", "NAME", "enter")\
+            .upper()
+
+    strength = blank_checker("Enter the value for 'Strength'", "STRENGTH",
+                             "integer")
+    speed = blank_checker("Enter the value for 'Speed'", "SPEED", "integer")
+    stealth = blank_checker("Enter the value for 'Stealth'", "STEALTH", "integer")
+    cunning = blank_checker("Enter the value for 'Cunning'", "CUNNING", "integer")
+
+    # Add the user's card to a new dictionary
+
+    new_card[monster_name] = {}  # Adds key with monster name and empty dictionary
+    new_card[monster_name]["Strength"] = strength  # Adds strength
+    new_card[monster_name]["Speed"] = speed  # Adds speed
+    new_card[monster_name]["Stealth"] = stealth  # Adds stealth
+    new_card[monster_name]["Cunning"] = cunning  # Adds cunning
+
+    # Get the correct updated card
+    correct_card = change_card(new_card)
+
+    # Add the correct card to the existing catalogue
+    exist_cards.update(correct_card)
+
+    print(exist_cards)
+
+
+# Main Routine
 # Stores monster cards in a nested dictionary
 exist_cards = {"STONELING":
                    {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
@@ -154,14 +192,4 @@ exist_cards = {"STONELING":
                    {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}
                }
 
-# Card to change
-new_card = {"STONELING":
-                {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15}}
-
-# Get the correct updated card
-correct_card = change_card(new_card)
-
-# Add the correct combo to the list of combos
-exist_cards.update(correct_card)
-
-print(exist_cards)
+add_card(exist_cards)

@@ -29,7 +29,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.04_change_card_v5_func (1)">
-    <configuration name="02_blank_checker_v4_func" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="03_add_card_v4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Monster_Card_Catalogue" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -41,7 +41,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/02_blank_checker_v4_func.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\jireh\OneDrive - Middleton Grange School\2023\Computer Science\Programming\Assessment\Monster_Card_Catalogue\03_add_card_v4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -50,7 +50,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="04_change_card_v3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="03_add_card_v5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Monster_Card_Catalogue" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -62,7 +62,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/04_change_card_v3.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\jireh\OneDrive - Middleton Grange School\2023\Computer Science\Programming\Assessment\Monster_Card_Catalogue\03_add_card_v5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,10 +137,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.04_change_card_v5_func (1)" />
+        <item itemvalue="Python.03_add_card_v5" />
+        <item itemvalue="Python.03_add_card_v4" />
         <item itemvalue="Python.04_change_card_v4" />
         <item itemvalue="Python.04_change_card_v5_func" />
-        <item itemvalue="Python.02_blank_checker_v4_func" />
-        <item itemvalue="Python.04_change_card_v3" />
       </list>
     </recent_temporary>
   </component>

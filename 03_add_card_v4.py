@@ -1,5 +1,5 @@
-"""Version 5 of change card component, making the previous code more
-flexible by putting it into a function"""
+"""Version 4 of add card component, adds the change card function from
+component 4"""
 
 import easygui
 
@@ -45,7 +45,7 @@ def change_card(card_confirm):
 
         # Print the card and check with user that it is correct
         card = ""
-        for monster_name, card_info in card_confirm.items():
+        for monster_name, card_info in new_card.items():
 
             for category in card_info:
                 card += f"{category}: {card_info[category]}\n"
@@ -89,7 +89,7 @@ def change_card(card_confirm):
                                                     "NAME", "enter").upper()
 
             # Replace the combo name with new name
-            card_confirm[monster_name_change] = card_confirm.pop(monster_name)
+            card_confirm[monster_name_change] = new_card.pop(monster_name)
 
         elif change == "Strength":
 
@@ -154,14 +154,29 @@ exist_cards = {"STONELING":
                    {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}
                }
 
-# Card to change
-new_card = {"STONELING":
-                {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15}}
+new_card = {}
+
+# Get the values for each category
+monster_name = blank_checker("Enter the monster's name", "NAME",
+                             "enter").upper()
+strength = blank_checker("Enter the value for 'Strength'", "STRENGTH",
+                         "integer")
+speed = blank_checker("Enter the value for 'Speed'", "SPEED", "integer")
+stealth = blank_checker("Enter the value for 'Stealth'", "STEALTH", "integer")
+cunning = blank_checker("Enter the value for 'Cunning'", "CUNNING", "integer")
+
+# Add the user's card to a new dictionary
+
+new_card[monster_name] = {}  # Adds key with monster name and empty dictionary
+new_card[monster_name]["Strength"] = strength  # Adds strength
+new_card[monster_name]["Speed"] = speed  # Adds speed
+new_card[monster_name]["Stealth"] = stealth  # Adds stealth
+new_card[monster_name]["Cunning"] = cunning  # Adds cunning
 
 # Get the correct updated card
 correct_card = change_card(new_card)
 
-# Add the correct combo to the list of combos
+# Add the correct card to the existing catalogue
 exist_cards.update(correct_card)
 
 print(exist_cards)
