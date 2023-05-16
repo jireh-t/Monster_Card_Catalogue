@@ -1,5 +1,5 @@
-"""Builds on code from version 2, replaces the changed card with the
-incorrect one from the catalogue"""
+"""Build on code from version 3, makes a loop so user can enter the name
+again if not in menu"""
 
 import easygui
 
@@ -154,11 +154,16 @@ exist_cards = {"STONELING":
                    {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}
                }
 
-# Ask user to enter monster name they want to search
-search_name = easygui.enterbox("Enter name of monster", "SEARCH").upper()
+while True:
+    # Ask user to enter monster name they want to search
+    search_name = easygui.enterbox("Enter name of combo", "SEARCH").upper()
 
-if search_name in exist_cards:
-    easygui.msgbox(f"{search_name} is in the catalogue")
+    while search_name not in exist_cards:
+        easygui.msgbox(f"Sorry, {search_name} is not in the catalogue",
+                       "ERROR")
+        # Ask user to enter combo name they want to search
+        search_name = blank_checker("Enter name of combo", "SEARCH",
+                                    "enter").upper()
 
     # Add the searched card to a separate dictionary
     searched_card = {search_name: exist_cards[search_name]}
@@ -172,8 +177,4 @@ if search_name in exist_cards:
     # Add the changed correct combo
     exist_cards.update(correct_card)
 
-    print(exist_cards)
-
-else:
-    easygui.msgbox(f"Sorry, {search_name} is not in the catalogue")
-
+    break

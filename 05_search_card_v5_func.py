@@ -1,5 +1,4 @@
-"""Builds on code from version 2, replaces the changed card with the
-incorrect one from the catalogue"""
+"""Builds on the code from version 4, puts it into a function to use later"""
 
 import easygui
 
@@ -129,6 +128,35 @@ def change_card(card_confirm):
             card_confirm[monster_name]["Cunning"] = new_cunning
 
 
+# Function to allow user to search for a monster card
+def search_card(cards):
+
+    while True:
+        # Ask user to enter monster name they want to search
+        search_name = easygui.enterbox("Enter name of combo", "SEARCH").upper()
+
+        while search_name not in exist_cards:
+            easygui.msgbox(f"Sorry, {search_name} is not in the catalogue",
+                           "ERROR")
+            # Ask user to enter combo name they want to search
+            search_name = blank_checker("Enter name of combo", "SEARCH",
+                                        "enter").upper()
+
+        # Add the searched card to a separate dictionary
+        searched_card = {search_name: exist_cards[search_name]}
+
+        # Confirm the dictionary with user
+        correct_card = change_card(searched_card)
+
+        # Delete the original combo
+        del[exist_cards[search_name]]
+
+        # Add the changed correct combo
+        exist_cards.update(correct_card)
+
+        break
+
+
 # Main Routine
 
 # Stores monster cards in a nested dictionary
@@ -154,26 +182,5 @@ exist_cards = {"STONELING":
                    {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}
                }
 
-# Ask user to enter monster name they want to search
-search_name = easygui.enterbox("Enter name of monster", "SEARCH").upper()
-
-if search_name in exist_cards:
-    easygui.msgbox(f"{search_name} is in the catalogue")
-
-    # Add the searched card to a separate dictionary
-    searched_card = {search_name: exist_cards[search_name]}
-
-    # Confirm the dictionary with user
-    correct_card = change_card(searched_card)
-
-    # Delete the original combo
-    del[exist_cards[search_name]]
-
-    # Add the changed correct combo
-    exist_cards.update(correct_card)
-
-    print(exist_cards)
-
-else:
-    easygui.msgbox(f"Sorry, {search_name} is not in the catalogue")
-
+search_card(exist_cards)
+print(exist_cards)

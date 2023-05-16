@@ -155,10 +155,10 @@ exist_cards = {"STONELING":
                }
 
 # Ask user to enter monster name they want to search
-search_name = easygui.enterbox("Enter name of combo", "SEARCH").upper()
+search_name = easygui.enterbox("Enter name of monster", "SEARCH").upper()
 
 if search_name in exist_cards:
-    easygui.msgbox(f"{search_name} is in the menu")
+    easygui.msgbox(f"{search_name} is in the catalogue")
 
     # Add the searched card to a separate dictionary
     searched_card = {search_name: exist_cards[search_name]}
@@ -167,5 +167,5 @@ if search_name in exist_cards:
     change_card(searched_card)
 
 else:
-    easygui.msgbox(f"Sorry, {search_name} is not in the menu")
+    easygui.msgbox(f"Sorry, {search_name} is not in the catalogue")
 
