@@ -1,4 +1,5 @@
-"""Puts code from version 5 into a function to make it more recyclable"""
+"""Builds on the code from version 1, adds the change card function from
+component 4 and blank checker"""
 
 import easygui
 
@@ -128,47 +129,8 @@ def change_card(card_confirm):
             card_confirm[monster_name]["Cunning"] = new_cunning
 
 
-# Function to allow user to add a new card
-def add_card(cards):
-
-    new_card = {}
-
-    # Get the values for each category
-    monster_name = blank_checker("Enter the monster's name", "NAME",
-                                 "enter").upper()
-    # Check if the name has already been used
-    while monster_name in exist_cards:
-        # Show error message
-        easygui.msgbox(f"Sorry, {monster_name} is already the name of a monster "
-                       f"card\n You must enter a different name", "ERROR")
-        # Ask for name again
-        monster_name = blank_checker("Enter the monster's name", "NAME", "enter")\
-            .upper()
-
-    strength = blank_checker("Enter the value for 'Strength'", "STRENGTH",
-                             "integer")
-    speed = blank_checker("Enter the value for 'Speed'", "SPEED", "integer")
-    stealth = blank_checker("Enter the value for 'Stealth'", "STEALTH", "integer")
-    cunning = blank_checker("Enter the value for 'Cunning'", "CUNNING", "integer")
-
-    # Add the user's card to a new dictionary
-
-    new_card[monster_name] = {}  # Adds key with monster name and empty dictionary
-    new_card[monster_name]["Strength"] = strength  # Adds strength
-    new_card[monster_name]["Speed"] = speed  # Adds speed
-    new_card[monster_name]["Stealth"] = stealth  # Adds stealth
-    new_card[monster_name]["Cunning"] = cunning  # Adds cunning
-
-    # Get the correct updated card
-    correct_card = change_card(new_card)
-
-    # Add the correct card to the existing catalogue
-    cards.update(correct_card)
-
-    print(cards)
-
-
 # Main Routine
+
 # Stores monster cards in a nested dictionary
 exist_cards = {"STONELING":
                    {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
@@ -192,4 +154,18 @@ exist_cards = {"STONELING":
                    {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}
                }
 
-add_card(exist_cards)
+# Ask user to enter monster name they want to search
+search_name = easygui.enterbox("Enter name of combo", "SEARCH").upper()
+
+if search_name in exist_cards:
+    easygui.msgbox(f"{search_name} is in the menu")
+
+    # Add the searched card to a separate dictionary
+    searched_card = {search_name: exist_cards[search_name]}
+
+    # Confirm the dictionary with user
+    change_card(searched_card)
+
+else:
+    easygui.msgbox(f"Sorry, {search_name} is not in the menu")
+
