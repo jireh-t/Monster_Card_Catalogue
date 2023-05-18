@@ -133,9 +133,10 @@ def search_card(cards):
 
     while True:
         # Ask user to enter monster name they want to search
-        search_name = easygui.enterbox("Enter name of combo", "SEARCH").upper()
+        search_name = blank_checker("Enter name of combo", "SEARCH",
+                                    "enter").upper()
 
-        while search_name not in exist_cards:
+        while search_name not in cards:
             easygui.msgbox(f"Sorry, {search_name} is not in the catalogue",
                            "ERROR")
             # Ask user to enter combo name they want to search
@@ -143,16 +144,16 @@ def search_card(cards):
                                         "enter").upper()
 
         # Add the searched card to a separate dictionary
-        searched_card = {search_name: exist_cards[search_name]}
+        searched_card = {search_name: cards[search_name]}
 
         # Confirm the dictionary with user
         correct_card = change_card(searched_card)
 
         # Delete the original combo
-        del[exist_cards[search_name]]
+        del[cards[search_name]]
 
         # Add the changed correct combo
-        exist_cards.update(correct_card)
+        cards.update(correct_card)
 
         break
 

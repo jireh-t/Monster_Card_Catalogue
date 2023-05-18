@@ -1,5 +1,5 @@
-"""Trial 1 of change card, this will trial the user selecting what specific
-category they would like to change"""
+"""Trial 1 of change card component, this will trial the user entering the
+specific category they want to change"""
 
 import easygui
 
@@ -9,7 +9,7 @@ new_card = {"STONELING":
 
 # Keep looping until the card is correct
 while True:
-
+    monster_name = ""
     # Print the card and check with user that it is correct
     card = ""
     for monster_name, card_info in new_card.items():
@@ -25,26 +25,26 @@ while True:
     if choice == "Yes":
         break
 
-    # Ask the user what they would like to change
-    change = easygui.buttonbox("What would you like to change?",
-                               choices=["Monster name", "Strength", "Speed",
-                                        "Stealth", "Cunning"])
+    # Ask user for category they wish to change
+    change = easygui.enterbox("Enter the name of the category you want to"
+                              " change")
 
-    if change == "Monster name":
+    if change == "Strength":
+
+        # Ask user for new value
+        new_strength = easygui.enterbox(f"What would you like to change the value "
+                                        f"of 'Strength' to?")
+
+        # Replace the current item price with new one
+        new_card[monster_name][change] = new_strength
+
+    elif change == "Name":
 
         # Ask user for new monster name
         monster_name_change = easygui.enterbox("What would you like to change "
                                                "it to?").upper()
         # Replace the monster name with new name
         new_card[monster_name_change] = new_card.pop(monster_name)
-
-    elif change == "Strength":
-
-        # Ask user for new value
-        new_strength = easygui.enterbox(f"What would you like to change the "
-                                        f"value of 'Strength' to?")
-        # Replace the current value with new one
-        new_card[monster_name]["Strength"] = new_strength
 
     elif change == "Speed":
 
@@ -69,4 +69,9 @@ while True:
                                        f"value of 'Cunning' to?")
         # Replace the current value with new one
         new_card[monster_name]["Cunning"] = new_cunning
+
+    else:
+        # Give error message if item does not exist
+        easygui.msgbox(f"Sorry {change} is not a valid category")
+
 

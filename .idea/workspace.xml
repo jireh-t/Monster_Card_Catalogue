@@ -29,7 +29,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.05_search_card_v5_func">
-    <configuration name="05_search_card_v1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="04_change_card_v3_t3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Monster_Card_Catalogue" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -41,7 +41,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\jireh\OneDrive - Middleton Grange School\2023\Computer Science\Programming\Assessment\Monster_Card_Catalogue\05_search_card_v1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/04_change_card_v3_t3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,10 +137,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.05_search_card_v5_func" />
+        <item itemvalue="Python.04_change_card_v3_t3" />
         <item itemvalue="Python.05_search_card_v4" />
         <item itemvalue="Python.05_search_card_v3" />
         <item itemvalue="Python.05_search_card_v2" />
-        <item itemvalue="Python.05_search_card_v1_t1" />
       </list>
     </recent_temporary>
   </component>
