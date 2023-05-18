@@ -36,7 +36,7 @@ def blank_checker(question, title, box):
                 return answer
 
 
-# Function to allow user to edit the combo
+# Function to allow user to edit the card
 def change_card(card_confirm):
     # Keep looping until the card is correct
     while True:
@@ -133,14 +133,14 @@ def search_card(cards):
 
     while True:
         # Ask user to enter monster name they want to search
-        search_name = blank_checker("Enter name of combo", "SEARCH",
+        search_name = blank_checker("Enter name of monster card", "SEARCH",
                                     "enter").upper()
 
         while search_name not in cards:
             easygui.msgbox(f"Sorry, {search_name} is not in the catalogue",
                            "ERROR")
-            # Ask user to enter combo name they want to search
-            search_name = blank_checker("Enter name of combo", "SEARCH",
+            # Ask user to enter monster name they want to search
+            search_name = blank_checker("Enter name of monster card", "SEARCH",
                                         "enter").upper()
 
         # Add the searched card to a separate dictionary
@@ -149,10 +149,10 @@ def search_card(cards):
         # Confirm the dictionary with user
         correct_card = change_card(searched_card)
 
-        # Delete the original combo
+        # Delete the original card
         del[cards[search_name]]
 
-        # Add the changed correct combo
+        # Add the changed correct card
         cards.update(correct_card)
 
         break

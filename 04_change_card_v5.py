@@ -91,7 +91,7 @@ while True:
 
     if change == "Monster name":
 
-        # Ask user for new combo name
+        # Ask user for new monster name
         monster_name_change = blank_checker("What would you like to change it"
                                             " to?", "NAME", "enter").upper()
         # If the name has already been used
@@ -103,12 +103,12 @@ while True:
                            f"must choose a different name",
                            "ERROR")
 
-            # Ask user for new combo name
+            # Ask user for new monster name
             monster_name_change = blank_checker("What would you like to "
                                                 "change it to?",
                                                 "NAME", "enter").upper()
 
-        # Replace the combo name with new name
+        # Replace the monster name with new name
         new_card[monster_name_change] = new_card.pop(monster_name)
 
     elif change == "Strength":

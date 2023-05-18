@@ -40,9 +40,9 @@ def blank_checker(question, title, box):
 # Function to allow user to edit the combo
 def change_card(card_confirm):
     # Keep looping until the card is correct
+
     while True:
         monster_name = ""
-
         # Print the card and check with user that it is correct
         card = ""
         for monster_name, card_info in new_card.items():

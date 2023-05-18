@@ -166,10 +166,10 @@ if search_name in exist_cards:
     # Confirm the dictionary with user
     correct_card = change_card(searched_card)
 
-    # Delete the original combo
+    # Delete the original card
     del[exist_cards[search_name]]
 
-    # Add the changed correct combo
+    # Add the changed correct card
     exist_cards.update(correct_card)
 
     print(exist_cards)

@@ -44,7 +44,7 @@ new_card[monster_name]["Speed"] = speed  # Adds speed
 new_card[monster_name]["Stealth"] = stealth  # Adds stealth
 new_card[monster_name]["Cunning"] = cunning  # Adds cunning
 
-# Print the combo and check with user that it is correct
+# Print the card and check with user that it is correct
 card = ""
 for monster_name, card_info in new_card.items():
 
