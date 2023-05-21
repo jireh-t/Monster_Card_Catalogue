@@ -8,23 +8,25 @@ import easygui
 def delete_card(cards):
 
     # Cards in the catalogue
-    choices = ["STONELING", "VEXSCREAM", "DAWNMIRAGE", "BLAZEGOLELM", "WEBSNAKE",
-               "MOLDVINE", "VORTEXWING", "ROTTHING", "FROSTSTEP", "WHISPGOUL"]
+    choices = ["STONELING", "VEXSCREAM", "DAWNMIRAGE", "BLAZEGOLELM",
+               "WEBSNAKE", "MOLDVINE", "VORTEXWING", "ROTTHING", "FROSTSTEP",
+               "WHISPGOUL"]
 
     # Ask the user what card they want to delete
     card_del = easygui.choicebox("Select the card you would like to delete",
                                  "DELETE", choices)
 
     # Ask user to confirm decision
-    sure = easygui.buttonbox(f"Are you sure you want to delete {card_del} from the "
-                             f"catalogue?\n\n"
-                             f"This cannot be undone",
-                             "PLEASE CONFIRM",
-                             choices=["Yes", "No"])
+    sure = easygui.buttonbox(
+        f"Are you sure you want to delete {card_del} from the "
+        f"catalogue?\n\n"
+        f"This cannot be undone",
+        "PLEASE CONFIRM",
+        choices=["Yes", "No"])
 
     if sure == "Yes":
         # Delete the card
-        del[cards[card_del]]
+        del [cards[card_del]]
         easygui.msgbox(f"{card_del} has been deleted", "DELETED")
 
 
