@@ -1,13 +1,12 @@
-"""Monster Card Catalogue base component v1
-Components added after they have been created and tested"""
+"""Monster Card Catalogue base component v2
+Makes a loop so the user can do multiple tasks in one session and can
+continue on the catalogue until they exit"""
 
 import easygui
 
 
 # Function to display welcome screen and menu
 def welcome():
-    # Print welcome statement
-    easygui.msgbox("* * * Welcome to Monster Card Catalogue * * *", "WELCOME")
     # Ask user to choose an option
     option = easygui.buttonbox("What would you like to do?\n", "Options",
                                choices=["1) Add card", "2) Search card",
@@ -85,8 +84,6 @@ def add_card(cards):
 
     # Add the correct card to the existing catalogue
     cards.update(correct_card)
-
-    print(cards)
 
 
 # Function to allow user to edit the card
@@ -285,20 +282,28 @@ exist_cards = {"STONELING":
                {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}
                }
 
+# Print welcome statement
+easygui.msgbox("* * * Welcome to Monster Card Catalogue * * *", "WELCOME")
 choice = welcome()
 
-# Will call on corresponding functions
-if choice == "1) Add card":
-    add_card(exist_cards)
+while choice != "5) Exit":
 
-elif choice == "2) Search card":
-    search_card(exist_cards)
+    # Will call on corresponding functions
+    if choice == "1) Add card":
+        add_card(exist_cards)
+        choice = welcome()
 
-elif choice == "3) Delete card":
-    delete_card(exist_cards)
+    elif choice == "2) Search card":
+        search_card(exist_cards)
+        choice = welcome()
 
-elif choice == "4) Output card":
-    output(exist_cards)
+    elif choice == "3) Delete card":
+        delete_card(exist_cards)
+        choice = welcome()
 
-elif choice == "5) Exit":
-    easygui.msgbox("Thank you for using the catalogue", "GOODBYE")
+    elif choice == "4) Output card":
+        output(exist_cards)
+        choice = welcome()
+
+# Print goodbye message
+easygui.msgbox("Thank you for using the catalogue", "GOODBYE")

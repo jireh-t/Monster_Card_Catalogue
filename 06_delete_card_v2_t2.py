@@ -26,9 +26,12 @@ exist_cards = {"STONELING":
                    {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}
                }
 
-# Cards in the catalogue
-choices = ["STONELING", "VEXSCREAM", "DAWNMIRAGE", "BLAZEGOLELM", "WEBSNAKE",
-           "MOLDVINE", "VORTEXWING", "ROTTHING", "FROSTSTEP", "WHISPGOUL"]
+# List to append the monster names to
+choices = []
+
+# Loop to print all cards in catalogue
+for monster_name in exist_cards:
+    choices.append(monster_name)
 
 # Ask the user what card they want to delete
 card_del = easygui.choicebox("Select the card you would like to delete",

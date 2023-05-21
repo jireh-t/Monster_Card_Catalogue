@@ -7,10 +7,12 @@ import easygui
 # Function to delete a card
 def delete_card(cards):
 
-    # Cards in the catalogue
-    choices = ["STONELING", "VEXSCREAM", "DAWNMIRAGE", "BLAZEGOLELM",
-               "WEBSNAKE", "MOLDVINE", "VORTEXWING", "ROTTHING", "FROSTSTEP",
-               "WHISPGOUL"]
+    # List to append the monster names to
+    choices = []
+
+    # Loop to print all cards in catalogue
+    for monster_name in exist_cards:
+        choices.append(monster_name)
 
     # Ask the user what card they want to delete
     card_del = easygui.choicebox("Select the card you would like to delete",
