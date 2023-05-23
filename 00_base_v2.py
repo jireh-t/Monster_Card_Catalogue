@@ -10,7 +10,8 @@ def welcome():
     # Ask user to choose an option
     option = easygui.buttonbox("What would you like to do?\n", "Options",
                                choices=["1) Add card", "2) Search card",
-                                        "3) Delete card", "4) Output card",
+                                        "3) Delete card", "4) Output "
+                                                          "catalogue",
                                         "5) Exit"])
     return option
 
@@ -99,14 +100,14 @@ def change_card(card_confirm):
             for category in card_info:
                 card += f"{category}: {card_info[category]}\n"
 
-        choice = easygui.buttonbox(f"Is the following card correct?\n\n"
-                                   f"{monster_name}\n\n"
-                                   f"{card}", "CONFIRM",
-                                   choices=["Yes", "No"])
+        confirm = easygui.buttonbox(f"Is the following card correct?\n\n"
+                                    f"{monster_name}\n\n"
+                                    f"{card}", "CONFIRM",
+                                    choices=["Yes", "No"])
 
         # When user is happy with the card
 
-        if choice == "Yes":
+        if confirm == "Yes":
             easygui.msgbox(f"You have successfully confirmed the card "
                            f"{monster_name}", "CARD CONFIRMED")
             return card_confirm
@@ -284,24 +285,24 @@ exist_cards = {"STONELING":
 
 # Print welcome statement
 easygui.msgbox("* * * Welcome to Monster Card Catalogue * * *", "WELCOME")
-choice = welcome()
+task = welcome()
 
-while choice != "5) Exit":
+while task != "5) Exit":
 
     # Will call on corresponding functions
-    if choice == "1) Add card":
+    if task == "1) Add card":
         add_card(exist_cards)
         choice = welcome()
 
-    elif choice == "2) Search card":
+    elif task == "2) Search card":
         search_card(exist_cards)
         choice = welcome()
 
-    elif choice == "3) Delete card":
+    elif task == "3) Delete card":
         delete_card(exist_cards)
         choice = welcome()
 
-    elif choice == "4) Output card":
+    elif task == "4) Output card":
         output(exist_cards)
         choice = welcome()
 

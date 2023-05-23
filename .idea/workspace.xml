@@ -28,7 +28,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.00_base_v2">
+  <component name="RunManager" selected="Python.00_base_v3">
     <configuration name="00_base_v1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Monster_Card_Catalogue" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -136,10 +136,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.00_base_v2" />
-        <item itemvalue="Python.06_delete_card_v2_t2" />
         <item itemvalue="Python.00_base_v3" />
+        <item itemvalue="Python.00_base_v2" />
         <item itemvalue="Python.00_base_v1" />
+        <item itemvalue="Python.06_delete_card_v2_t2" />
         <item itemvalue="Python.07_output_catalogue_v3_func" />
       </list>
     </recent_temporary>
@@ -164,9 +164,9 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/00_base_v2.py</url>
-          <line>211</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/00_base_v3.py</url>
+          <line>131</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

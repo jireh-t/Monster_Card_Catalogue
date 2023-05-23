@@ -1,6 +1,5 @@
-"""Monster Card Catalogue base component v2
-Makes a loop so the user can do multiple tasks in one session and can
-continue on the catalogue until they exit"""
+"""Monster Card Catalogue base component v3
+Implicating the feedback from the end user testing"""
 
 import easygui
 
@@ -10,7 +9,8 @@ def welcome():
     # Ask user to choose an option
     option = easygui.buttonbox("What would you like to do?\n", "Options",
                                choices=["1) Add card", "2) Search card",
-                                        "3) Delete card", "4) Output card",
+                                        "3) Delete card", "4) Output "
+                                                          "catalogue",
                                         "5) Exit"])
     return option
 
@@ -65,11 +65,15 @@ def add_card(cards):
         monster_name = blank_checker("Enter the monster's name", "NAME", "enter")\
             .upper()
 
-    strength = blank_checker("Enter the value for 'Strength'", "STRENGTH",
+    strength = blank_checker("Enter the value for 'Strength' \nBetween 1 and "
+                             "25", "STRENGTH",
                              "integer")
-    speed = blank_checker("Enter the value for 'Speed'", "SPEED", "integer")
-    stealth = blank_checker("Enter the value for 'Stealth'", "STEALTH", "integer")
-    cunning = blank_checker("Enter the value for 'Cunning'", "CUNNING", "integer")
+    speed = blank_checker("Enter the value for 'Speed' \nBetween 1 and 25",
+                          "SPEED", "integer")
+    stealth = blank_checker("Enter the value for 'Stealth' \nBetween 1 and 25",
+                            "STEALTH", "integer")
+    cunning = blank_checker("Enter the value for 'Cunning' \nBetween 1 and 25",
+                            "CUNNING", "integer")
 
     # Add the user's card to a new dictionary
 
@@ -99,14 +103,14 @@ def change_card(card_confirm):
             for category in card_info:
                 card += f"{category}: {card_info[category]}\n"
 
-        choice = easygui.buttonbox(f"Is the following card correct?\n\n"
-                                   f"{monster_name}\n\n"
-                                   f"{card}", "CONFIRM",
-                                   choices=["Yes", "No"])
+        confirm = easygui.buttonbox(f"Is the following card correct?\n\n"
+                                    f"{monster_name}\n\n"
+                                    f"{card}", "CONFIRM",
+                                    choices=["Yes", "No"])
 
         # When user is happy with the card
 
-        if choice == "Yes":
+        if confirm == "Yes":
             easygui.msgbox(f"You have successfully confirmed the card "
                            f"{monster_name}", "CARD CONFIRMED")
             return card_confirm
@@ -145,7 +149,7 @@ def change_card(card_confirm):
             # Ask user for new value
             new_strength = blank_checker(
                 "What would you like to change the value "
-                "of 'Strength' to?", "STRENGTH",
+                "of 'Strength' to? \nBetween 1 and 25", "STRENGTH",
                 "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Strength"] = new_strength
@@ -155,7 +159,7 @@ def change_card(card_confirm):
             # Ask user for new value
             new_speed = blank_checker(
                 "What would you like to change the value "
-                "of 'Speed' to?", "SPEED", "integer")
+                "of 'Speed' to? \nBetween 1 and 25", "SPEED", "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Speed"] = new_speed
 
@@ -164,7 +168,7 @@ def change_card(card_confirm):
             # Ask user for new value
             new_stealth = blank_checker(
                 "What would you like to change the value "
-                "of 'Stealth' to?", "STEALTH", "integer")
+                "of 'Stealth' to? \nBetween 1 and 25", "STEALTH", "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Stealth"] = new_stealth
 
@@ -172,7 +176,8 @@ def change_card(card_confirm):
 
             # Ask user for new value
             new_cunning = blank_checker("What would you like to change the "
-                                        "value of 'Cunning' to?", "CUNNING",
+                                        "value of 'Cunning' to? \nBetween 1 "
+                                        "and 25", "CUNNING",
                                         "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Cunning"] = new_cunning
@@ -301,7 +306,7 @@ while choice != "5) Exit":
         delete_card(exist_cards)
         choice = welcome()
 
-    elif choice == "4) Output card":
+    elif choice == "4) Output catalogue":
         output(exist_cards)
         choice = welcome()
 
