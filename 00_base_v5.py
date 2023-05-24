@@ -1,6 +1,6 @@
 """Monster Card Catalogue base component v3
-Implicating the feedback from the end user to make the cancel button bring
-the user back to the main menu"""
+Making the cancel button for the change component, bring the user back to
+the change screen not the main menu and adding a confirmation message"""
 
 import easygui
 
@@ -50,7 +50,15 @@ def blank_checker(question, title, box):
                 answer = easygui.enterbox(question, title)
 
             if not answer:
+                # cancel = easygui.buttonbox("Are you sure you want to "
+                #                            "cancel?\nAny changes made will "
+                #                            "not be saved", choices=["Yes",
+                #                                                     "No"])
+                # if cancel == "Yes":
                 welcome()
+
+
+
 
             else:
                 return answer
@@ -62,7 +70,13 @@ def blank_checker(question, title, box):
 
         while True:  # Loops until valid input is entered
             if not answer:
+                # cancel = easygui.buttonbox("Are you sure you want to cancel? "
+                #                          "Any "
+                #                   "changes made will not be saved",
+                #                   choices=["Yes", "No"])
+                # if cancel == "Yes":
                 welcome()
+
             else:
                 return answer
 
@@ -142,9 +156,16 @@ def change_card(card_confirm):
         if change == "Monster name":
 
             # Ask user for new monster name
-            monster_name_change = blank_checker("What would you like to "
-                                                "change it to?", "NAME",
-                                                "enter").upper()
+            monster_name_change = easygui.enterbox("What would you like to "
+                                                "change it to?", "NAME")
+            if not monster_name_change:
+                change_card(card_confirm)
+
+            elif monster_name_change == "":
+                easygui.msgbox("You must fill out every field", "ERROR")
+
+            else:
+                monster_name_change = monster_name_change.upper()
 
             # If the name has already been used
             while monster_name_change in exist_cards:
@@ -199,6 +220,8 @@ def change_card(card_confirm):
                                         "integer")
             # Replace the current value with new one
             card_confirm[monster_name]["Cunning"] = new_cunning
+
+    welcome()
 
 
 # Function to allow user to search for a monster card
