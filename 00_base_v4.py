@@ -1,5 +1,5 @@
 """Monster Card Catalogue base component v3
-Implicating the feedback from the end user testing on parameters"""
+Implicating the feedback from the end user cancel button"""
 
 import easygui
 
@@ -7,12 +7,33 @@ import easygui
 # Function to display welcome screen and menu
 def welcome():
     # Ask user to choose an option
-    option = easygui.buttonbox("What would you like to do?\n", "Options",
+    task = easygui.buttonbox("What would you like to do?\n", "Options",
                                choices=["1) Add card", "2) Search card",
                                         "3) Delete card", "4) Output "
                                                           "catalogue",
                                         "5) Exit"])
-    return option
+    while task != "5) Exit":
+
+        # Will call on corresponding functions
+        if task == "1) Add card":
+            add_card(exist_cards)
+            welcome()
+
+        elif task == "2) Search card":
+            search_card(exist_cards)
+            welcome()
+
+        elif task == "3) Delete card":
+            delete_card(exist_cards)
+            welcome()
+
+        elif task == "4) Output catalogue":
+            output(exist_cards)
+            welcome()
+
+    # Print goodbye message
+    easygui.msgbox("Thank you for using the catalogue", "GOODBYE")
+    exit()
 
 
 # Function to make sure input is entered and not left blank
@@ -29,8 +50,8 @@ def blank_checker(question, title, box):
                 answer = easygui.enterbox(question, title)
 
             if not answer:
-                easygui.msgbox(error_message, "ERROR")  # Display error message
-                answer = easygui.enterbox(question, title)
+                welcome()
+
             else:
                 return answer
 
@@ -41,9 +62,7 @@ def blank_checker(question, title, box):
 
         while True:  # Loops until valid input is entered
             if not answer:
-                easygui.msgbox(error_message, "ERROR")  # Display error message
-                answer = easygui.integerbox(question, title, lowerbound=1,
-                                            upperbound=25)
+                welcome()
             else:
                 return answer
 
@@ -225,6 +244,8 @@ def delete_card(cards):
     # Ask the user what card they want to delete
     card_del = easygui.choicebox("Select the card you would like to delete",
                                  "DELETE", choices)
+    if not card_del:
+        welcome()
 
     # Ask user to confirm decision
     sure = easygui.buttonbox(
@@ -260,6 +281,8 @@ def output(cards):
     print(f"/ / / Below is the full catalogue/ / /\n"
           f"{catalogue}\n\n")
 
+    welcome()
+
 
 # Main Routine
 
@@ -288,26 +311,4 @@ exist_cards = {"STONELING":
 
 # Print welcome statement
 easygui.msgbox("* * * Welcome to Monster Card Catalogue * * *", "WELCOME")
-task = welcome()
-
-while task != "5) Exit":
-
-    # Will call on corresponding functions
-    if task == "1) Add card":
-        add_card(exist_cards)
-        choice = welcome()
-
-    elif task == "2) Search card":
-        search_card(exist_cards)
-        choice = welcome()
-
-    elif task == "3) Delete card":
-        delete_card(exist_cards)
-        choice = welcome()
-
-    elif task == "4) Output card":
-        output(exist_cards)
-        choice = welcome()
-
-# Print goodbye message
-easygui.msgbox("Thank you for using the catalogue", "GOODBYE")
+welcome()
