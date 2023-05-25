@@ -39,6 +39,7 @@ def blank_checker(question, title, box):
     error_message = "You must fill out every field"
 
     if box == "enter":
+
         # Asks user for input
         answer = easygui.enterbox(question, title)
 
@@ -47,9 +48,9 @@ def blank_checker(question, title, box):
                 easygui.msgbox(error_message, "ERROR")  # Show error message
                 answer = easygui.enterbox(question, title)
 
+            # If cancel button is pressed
             if not answer:
                 welcome()
-
             else:
                 return answer
 
@@ -59,6 +60,7 @@ def blank_checker(question, title, box):
                                     upperbound=25)
 
         while True:  # Loops until valid input is entered
+            # If user presses cancel button
             if not answer:
                 welcome()
             else:
