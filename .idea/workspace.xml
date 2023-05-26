@@ -28,7 +28,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
-  <component name="RunManager" selected="Python.01_welcome_v4_func">
+  <component name="RunManager" selected="Python.MCC_final_version (1)">
     <configuration name="00_base_v4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Monster_Card_Catalogue" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -136,9 +136,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MCC_final_version (1)" />
         <item itemvalue="Python.01_welcome_v4_func" />
         <item itemvalue="Python.01_welcome_v1_t1" />
-        <item itemvalue="Python.MCC_final_version (1)" />
         <item itemvalue="Python.00_base_v4" />
         <item itemvalue="Python.MCC_final_version" />
       </list>

@@ -297,7 +297,7 @@ exist_cards = {"STONELING":
                {"Strength": 1, "Speed": 6, "Stealth": 21, "Cunning": 19},
                "DAWNMIRAGE":
                {"Strength": 5, "Speed": 15, "Stealth": 18, "Cunning": 22},
-               "BLAZEGOLELM":
+               "BLAZEGOLEM":
                {"Strength": 15, "Speed": 20, "Stealth": 23, "Cunning": 6},
                "WEBSNAKE":
                {"Strength": 7, "Speed": 15, "Stealth": 10, "Cunning": 5},
