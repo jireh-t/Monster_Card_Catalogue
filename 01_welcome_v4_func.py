@@ -8,7 +8,7 @@ import easygui
 # Function to display welcome screen and menu
 def welcome():
     # Ask user to choose an option
-    task = easygui.buttonbox("What would you like to do?\n", "Options",
+    task = easygui.buttonbox("What would you like to do?\n", "OPTIONS",
                                choices=["1) Add card", "2) Search card",
                                         "3) Delete card", "4) Output "
                                                           "catalogue",
