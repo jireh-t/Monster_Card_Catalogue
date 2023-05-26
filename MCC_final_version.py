@@ -51,6 +51,7 @@ def blank_checker(question, title, box):
             # If cancel button is pressed
             if not answer:
                 welcome()
+
             else:
                 return answer
 
